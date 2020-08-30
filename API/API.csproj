@@ -1,8 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.StorageCenter\API.StorageCenter.csproj" />
+    <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj" />
+    <ProjectReference Include="..\API.Configurations\API.Configurations.csproj" />
+  </ItemGroup>
 </Project>

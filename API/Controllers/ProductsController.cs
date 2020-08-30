@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using API.Abstractions.BLL;
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
@@ -5,13 +9,21 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        [HttpGet]
-        public string GetProducts()
+        private readonly IProductManager _productManager;
+        public ProductsController(IProductManager productManager)
         {
-            return "Soon you will see all type of product";
+            _productManager = productManager;
+
+        }
+        [HttpGet]
+        public async Task<ICollection<Product>> GetProducts()
+        {
+            var products = await _productManager.GetAll();
+            return products;
         }
         [HttpGet("{id}")]
-        public string GetProduct(int id){
+        public string GetProduct(int id)
+        {
             return "Single Product";
         }
     }
