@@ -16,15 +16,16 @@ namespace API.Controllers
 
         }
         [HttpGet]
-        public async Task<ICollection<Product>> GetProducts()
+        public async Task<ActionResult<List<Product>>> GetProducts()
         {
             var products = await _productManager.GetAll();
-            return products;
+            return Ok(products);
         }
         [HttpGet("{id}")]
-        public string GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
-            return "Single Product";
+            var product =  await _productManager.GetById(id);
+            return Ok(product);
         }
     }
 }
