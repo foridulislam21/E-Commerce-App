@@ -8,7 +8,7 @@ namespace API.Abstractions.BLL.Base
         Task<bool> Add(T entity);
         Task<bool> Remove(T entity);
         Task<bool> Update(T entity);
-        Task<ICollection<T>> GetAll();
+        Task<IReadOnlyList<T>> GetAll();
         Task<T> GetById(int id);
     }
 }

@@ -12,7 +12,6 @@ namespace API.Repositories
         public ProductRepository(DbContext db) : base(db)
         {
             _db = db as StoreContext;
-
         }
     }
 }

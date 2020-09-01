@@ -18,7 +18,7 @@ namespace API.Repositories.Base
             return await _db.SaveChangesAsync() > 0;
         }
 
-        public virtual async Task<ICollection<T>> GetAll()
+        public virtual async Task<IReadOnlyList<T>> GetAll()
         {
             return await _db.Set<T>().ToListAsync();
         }

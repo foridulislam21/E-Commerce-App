@@ -18,7 +18,7 @@ namespace API.BLL.Base
             return await _repo.Add(entity);
         }
 
-        public virtual async Task<ICollection<T>> GetAll()
+        public virtual async Task<IReadOnlyList<T>> GetAll()
         {
             return await _repo.GetAll();
         }
