@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using API.Abstractions.Repository;
 using API.Models;
 using API.Repositories.Base;
@@ -12,6 +14,19 @@ namespace API.Repositories
         public ProductRepository(DbContext db) : base(db)
         {
             _db = db as StoreContext;
+        }
+        public override async Task<IReadOnlyList<Product>> GetAll()
+        {
+            return await _db.Products
+            .Include(b => b.ProductBrand)
+            .Include(t => t.ProductType)
+            .ToListAsync();
+        }
+        public override async Task<Product> GetById(int id) {
+            return await _db.Products
+            .Include(b => b.ProductBrand)
+            .Include(t => t.ProductType)
+            .FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }

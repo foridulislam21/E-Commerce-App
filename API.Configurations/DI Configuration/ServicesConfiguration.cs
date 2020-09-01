@@ -13,8 +13,14 @@ namespace API.Configurations.DI_Configuration
         public static void Configure(IServiceCollection services)
         {
             //product
-            services.AddTransient<IProductManager, ProductManager>();
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductManager, ProductManager>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            //Type
+            services.AddScoped<IProductTypeManager, ProductTypeManager>();
+            services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+            //Brand
+            services.AddScoped<IProductBrandManager, ProductBrandManager>();
+            services.AddScoped<IProductBrandRepository, ProductBrandRepository>();
             //DB
             services.AddScoped<DbContext, StoreContext>();
         }

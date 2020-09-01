@@ -10,8 +10,12 @@ namespace API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductManager _productManager;
-        public ProductsController(IProductManager productManager)
+        private readonly IProductBrandManager _brandManager;
+        private readonly IProductTypeManager _typeManager;
+        public ProductsController(IProductManager productManager, IProductBrandManager brandManager, IProductTypeManager typeManager)
         {
+            _typeManager = typeManager;
+            _brandManager = brandManager;
             _productManager = productManager;
 
         }
@@ -24,8 +28,20 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            var product =  await _productManager.GetById(id);
+            var product = await _productManager.GetById(id);
             return Ok(product);
+        }
+        [HttpGet("brands")]
+        public async Task<ActionResult<List<ProductBrand>>> GetBrands()
+        {
+            var brands = await _brandManager.GetAll();
+            return Ok(brands);
+        }
+        [HttpGet("types")]
+        public async Task<ActionResult<List<ProductType>>> GetTypes()
+        {
+            var types = await _typeManager.GetAll();
+            return Ok(types);
         }
     }
 }
