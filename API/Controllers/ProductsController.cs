@@ -6,9 +6,7 @@ using API.Models.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers {
-    [ApiController]
-    [Route ("api/[controller]")]
-    public class ProductsController : ControllerBase {
+    public class ProductsController : BaseApiController {
         private readonly IProductManager _productManager;
         private readonly IProductBrandManager _brandManager;
         private readonly IProductTypeManager _typeManager;
