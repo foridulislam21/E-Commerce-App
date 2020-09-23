@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Abstractions.BLL;
+using API.Configurations.Error;
 using API.Models;
 using API.Models.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers {
     public class ProductsController : BaseApiController {
@@ -27,9 +29,14 @@ namespace API.Controllers {
         }
 
         [HttpGet ("{id}")]
+        [ProducesResponseType (StatusCodes.Status200OK)]
+        [ProducesResponseType (typeof (ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetProduct (int id) {
             var product = await _productManager.GetById (id);
             var productFromrepo = _mapper.Map<Product, ProductToReturnDto> (product);
+            if (productFromrepo == null) {
+                return NotFound (new ApiResponse (404));
+            }
             return Ok (productFromrepo);
         }
 
