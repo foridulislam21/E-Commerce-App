@@ -18,10 +18,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace API {
     public class Startup {
         private readonly IConfiguration _configuration;
+
         public Startup (IConfiguration configuration) {
             _configuration = configuration;
         }
@@ -49,11 +51,13 @@ namespace API {
                     return new BadRequestObjectResult (errorResponse);
                 };
             });
+            services.AddSwaggerGen (c => {
+                c.SwaggerDoc ("v1", new OpenApiInfo { Title = "Mid Street Cafe", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
-
             app.UseMiddleware<ExceptionMiddleware> ();
 
             app.UseStatusCodePagesWithReExecute ("/errors/{0}");
@@ -65,6 +69,12 @@ namespace API {
             app.UseStaticFiles ();
 
             app.UseAuthorization ();
+
+            app.UseSwagger ();
+
+            app.UseSwaggerUI (c => {
+                c.SwaggerEndpoint ("/swagger/v1/swagger.json", "Mid Street Cafe v1");
+            });
 
             app.UseEndpoints (endpoints => {
                 endpoints.MapControllers ();
