@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Abstractions.BLL;
+using API.Abstractions.BLL.Core;
 using API.Configurations.Error;
 using API.Models;
 using API.Models.DTO;
@@ -23,7 +24,8 @@ namespace API.Controllers {
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts () {
-            var products = await _productManager.GetAll ();
+            var spec = new ProductsWithTypesAndBrandsSpecification ();
+            var products = await _productManager.ListAsync (spec);
             var productsFromRepo = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>> (products);
             return Ok (productsFromRepo);
         }
@@ -32,7 +34,9 @@ namespace API.Controllers {
         [ProducesResponseType (StatusCodes.Status200OK)]
         [ProducesResponseType (typeof (ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetProduct (int id) {
-            var product = await _productManager.GetById (id);
+            var spec = new ProductsWithTypesAndBrandsSpecification (id);
+
+            var product = await _productManager.GetEntityWithSpec (spec);
             var productFromrepo = _mapper.Map<Product, ProductToReturnDto> (product);
             if (productFromrepo == null) {
                 return NotFound (new ApiResponse (404));
