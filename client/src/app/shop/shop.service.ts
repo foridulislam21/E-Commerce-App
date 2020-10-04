@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { IBrand } from '../shared/models/brand';
 import { IPagination } from '../shared/models/pagination';
+import { IProduct } from '../shared/models/product';
 import { IProductType } from '../shared/models/ProductType';
 import { ShopParams } from '../shared/models/shopParams';
 
@@ -14,7 +15,9 @@ export class ShopService {
   private baseUrl = 'https://localhost:5001/api/';
   constructor(private http: HttpClient) {}
 
-  // tslint:disable-next-line: typedef
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
+  }
   getProducts(shopPrarms: ShopParams) {
     let params = new HttpParams();
 
@@ -44,11 +47,9 @@ export class ShopService {
         })
       );
   }
-  // tslint:disable-next-line: typedef
   getBrands() {
     return this.http.get<IBrand[]>(this.baseUrl + 'products/brands');
   }
-  // tslint:disable-next-line: typedef
   getTypes() {
     return this.http.get<IProductType[]>(this.baseUrl + 'products/types');
   }
