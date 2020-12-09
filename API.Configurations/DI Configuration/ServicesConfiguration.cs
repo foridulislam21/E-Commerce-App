@@ -1,5 +1,6 @@
 using System.Linq;
 using API.Abstractions.BLL;
+using API.Abstractions.BLL.Core;
 using API.Abstractions.Repository;
 using API.BLL;
 using API.Configurations.Error;
@@ -27,22 +28,24 @@ namespace API.Configurations.DI_Configuration
             services.AddScoped<IProductBrandRepository, ProductBrandRepository>();
             //DB
             services.AddScoped<DbContext, StoreContext>();
+            //Basket
+            services.AddTransient<IBasketManager, BasketRepository>();
             //Configuration Related
             services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = actionContext =>
-                {
-                    var errors = actionContext.ModelState
-                        .Where(e => e.Value.Errors.Count > 0)
-                        .SelectMany(x => x.Value.Errors)
-                        .Select(x => x.ErrorMessage).ToArray();
-                    var errorResponse = new ApiValidationErrorResponse
-                    {
-                        Errors = errors
-                    };
-                    return new BadRequestObjectResult(errorResponse);
-                };
-            });
+           {
+               options.InvalidModelStateResponseFactory = actionContext =>
+               {
+                   var errors = actionContext.ModelState
+                       .Where(e => e.Value.Errors.Count > 0)
+                       .SelectMany(x => x.Value.Errors)
+                       .Select(x => x.ErrorMessage).ToArray();
+                   var errorResponse = new ApiValidationErrorResponse
+                   {
+                       Errors = errors
+                   };
+                   return new BadRequestObjectResult(errorResponse);
+               };
+           });
         }
     }
 }

@@ -1,13 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\API.Models\API.Models.csproj"/>
-    <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj"/>
-    <ProjectReference Include="..\API.StorageCenter\API.StorageCenter.csproj"/>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5"/>
-  </ItemGroup>
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\API.Models\API.Models.csproj" />
+        <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj" />
+        <ProjectReference Include="..\API.StorageCenter\API.StorageCenter.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+        <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
+    </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
 </Project>
