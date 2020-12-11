@@ -11,7 +11,7 @@ namespace API.Repositories
     {
         private readonly IDatabase _database;
 
-        public BasketRepository(ConnectionMultiplexer redis)
+        public BasketRepository(IConnectionMultiplexer redis)
         {
             _database = redis.GetDatabase();
         }
