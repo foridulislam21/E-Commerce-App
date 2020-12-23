@@ -4,7 +4,7 @@
   <img
     [routerLink]="['/']"
     src="/assets/images/logo.png"
-    style="max-height: 50px;"
+    style="max-height: 50px"
     alt="logo"
     class="logo"
   />
@@ -19,7 +19,12 @@
     <a class="p-2 text-dark" [routerLink]="['/shop']" routerLinkActive="active"
       >Shop</a
     >
-    <a class="p-2 text-dark" [routerLink]="['/test-error']" routerLinkActive="active" >Error</a>
+    <a
+      class="p-2 text-dark"
+      [routerLink]="['/test-error']"
+      routerLinkActive="active"
+      >Error</a
+    >
   </nav>
   <div class="d-flex align-items-center">
     <a routerLink="/basket" class="position-relative">
@@ -27,7 +32,9 @@
         class="fa fa-shopping-cart fa-2x mr-5 text-dark"
         aria-hidden="true"
       ></i>
-      <div class="cart-no">5</div>
+      <div *ngIf="basket$ | async as basket" class="cart-no">
+        {{ basket.items.length }}
+      </div>
     </a>
     <a class="btn btn-outline-secondary mr-2 btn-sm" href="#">Login</a>
     <a class="btn btn-outline-secondary mr-3 btn-sm" href="#">Sign up</a>
