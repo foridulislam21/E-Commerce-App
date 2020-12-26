@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj" />
-        <ProjectReference Include="..\API.Models\API.Models.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5"/>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj"/>
+    <ProjectReference Include="..\API.Models\API.Models.csproj"/>
+  </ItemGroup>
 </Project>
