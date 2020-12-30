@@ -1,21 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
-        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.8" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.2" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj" />
-        <ProjectReference Include="..\API.BLL\API.BLL.csproj" />
-        <ProjectReference Include="..\API.Repositories\API.Repositories.csproj" />
-        <ProjectReference Include="..\API.StorageCenter\API.StorageCenter.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5"/>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5"/>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.8"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.2"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.2"/>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0"/>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5"/>
+    <PackageReference Include="System.Security.Claims" Version="4.3.0"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj"/>
+    <ProjectReference Include="..\API.BLL\API.BLL.csproj"/>
+    <ProjectReference Include="..\API.Repositories\API.Repositories.csproj"/>
+    <ProjectReference Include="..\API.StorageCenter\API.StorageCenter.csproj"/>
+  </ItemGroup>
 </Project>

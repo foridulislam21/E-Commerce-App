@@ -2,8 +2,10 @@ using System.Linq;
 using API.Abstractions.BLL;
 using API.Abstractions.BLL.Core;
 using API.Abstractions.Repository;
+using API.Abstractions.TokenService;
 using API.BLL;
 using API.Configurations.Error;
+using API.Configurations.Service;
 using API.Repositories;
 using API.StorageCenter;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +31,9 @@ namespace API.Configurations.DI_Configuration
             //DB
             services.AddScoped<DbContext, StoreContext>();
             //Basket
-            services.AddTransient<IBasketManager, BasketRepository>();
+            services.AddScoped<IBasketManager, BasketRepository>();
+            //Token
+            services.AddScoped<ITokenService, TokenService>();
             //Configuration Related
             services.Configure<ApiBehaviorOptions>(options =>
            {
