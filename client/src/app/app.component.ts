@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AccountService } from './account/account.service';
 import { BasketService } from './basket/basket.service';
 
 @Component({
@@ -8,15 +10,33 @@ import { BasketService } from './basket/basket.service';
 })
 export class AppComponent implements OnInit {
   title = 'Mid Street Cafe';
-  constructor(private basketService: BasketService) {}
+  constructor(
+    private basketService: BasketService,
+    private accountService: AccountService
+  ) {}
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    this.loadBasket();
+    this.loadCurrnetUser();
+  }
+  loadBasket() {
     const basketId = localStorage.getItem('basket_id');
     if (basketId) {
       this.basketService.getBasket(basketId).subscribe(
         () => {
           console.log('Initialize basket');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  }
+  loadCurrnetUser() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.accountService.loadCurrentUser(token).subscribe(
+        () => {
+          console.log('Loaded User');
         },
         (error) => {
           console.log(error);
