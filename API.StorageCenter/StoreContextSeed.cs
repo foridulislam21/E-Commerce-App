@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using API.Models;
+using API.Models.OrderAggregate;
 using Microsoft.Extensions.Logging;
 
 namespace API.StorageCenter
@@ -47,6 +48,17 @@ namespace API.StorageCenter
                     foreach (var item in products)
                     {
                         context.Products.Add(item);
+                    }
+                    await context.SaveChangesAsync();
+                }
+                if (!context.DeliveryMethods.Any())
+                {
+                    var dmData = File.ReadAllText("../API.Models/SeedData/delivery.json");
+                    var delivery = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
+
+                    foreach (var item in delivery)
+                    {
+                        context.DeliveryMethods.Add(item);
                     }
                     await context.SaveChangesAsync();
                 }
