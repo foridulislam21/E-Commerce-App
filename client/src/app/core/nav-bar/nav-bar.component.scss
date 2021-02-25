@@ -20,6 +20,7 @@ a {
 }
 .logo {
   cursor: pointer;
+  text-decoration: red;
 
   &:focus {
     outline: none;
