@@ -9,7 +9,7 @@ namespace API.Models.OrderAggregate
         {
         }
 
-        public Order (IReadOnlyList<OrderItem> orderItems, string buyerEmail, DateTimeOffset orderDate, Address shipToAddress, DeliveryMethod deliveryMethod, decimal subTotal)
+        public Order(IReadOnlyList<OrderItem> orderItems, string buyerEmail, Address shipToAddress, DeliveryMethod deliveryMethod, decimal subTotal)
         {
             BuyerEmail = buyerEmail;
             ShipToAddress = shipToAddress;
@@ -26,7 +26,7 @@ namespace API.Models.OrderAggregate
         public decimal SubTotal { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.Pending;
         public string PaymentIntentId { get; set; }
-        public decimal GetTotal ()
+        public decimal GetTotal()
         {
             return SubTotal + DeliveryMethod.Price;
         }
