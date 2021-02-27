@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace API.StorageCenter.Identity
 {
-    public class AppIdentityDbContextSeed
+    public static class AppIdentityDbContextSeed
     {
         public static async Task SeedUsersAsync(UserManager<AppUser> userManager){
             if (!userManager.Users.Any())

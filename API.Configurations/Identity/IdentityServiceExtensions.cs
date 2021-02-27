@@ -9,9 +9,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Configurations.Identity
 {
-    public class IdentityServiceExtensions
+    public static class IdentityServiceExtensions
     {
-        public static void AddIdentityService (IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddIdentityService (this IServiceCollection services, IConfiguration config)
         {
             var builder = services.AddIdentityCore<AppUser> ();
             builder = new IdentityBuilder (builder.UserType, builder.Services);
@@ -29,6 +29,7 @@ namespace API.Configurations.Identity
                     ValidateAudience = false
                     };
                 });
+            return services;
         }
     }
 }

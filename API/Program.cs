@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using API.Models.Identity;
-using API.StorageCenter;
+using API.StorageCenter.Data;
 using API.StorageCenter.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;

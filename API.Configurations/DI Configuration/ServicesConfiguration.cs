@@ -9,7 +9,7 @@ using API.Configurations.Error;
 using API.Configurations.Service;
 using API.Repositories;
 using API.Repositories.Services;
-using API.StorageCenter;
+using API.StorageCenter.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

@@ -2,6 +2,10 @@ namespace API.Models.OrderAggregate
 {
     public class OrderItem : BaseEntity
     {
+        public OrderItem()
+        {
+        }
+
         public OrderItem(ProductItemOrdered itemOrdered, decimal price, int quantity)
         {
             ItemOrdered = itemOrdered;

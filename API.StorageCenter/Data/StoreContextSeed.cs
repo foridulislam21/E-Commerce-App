@@ -6,9 +6,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using API.Models;
 using API.Models.OrderAggregate;
+using API.StorageCenter.Data;
 using Microsoft.Extensions.Logging;
 
-namespace API.StorageCenter
+namespace API.StorageCenter.Data
 {
     public class StoreContextSeed
     {

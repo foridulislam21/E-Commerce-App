@@ -12,7 +12,8 @@
 appsettings.json
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+publish
+wwwroot
 # Mono auto generated files
 mono_crash.*
 *.rdb

@@ -4,7 +4,7 @@ using API.Models;
 using API.Models.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.StorageCenter
+namespace API.StorageCenter.Data
 {
     public class StoreContext : DbContext
     {
