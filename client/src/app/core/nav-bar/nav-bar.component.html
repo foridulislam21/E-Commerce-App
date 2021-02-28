@@ -4,7 +4,7 @@
   <img
     [routerLink]="['/']"
     src="/assets/images/Mid.png"
-    style="max-height: 50px"
+    style="max-height: 70px; width: 100px"
     alt="logo"
     class="logo"
   />
@@ -58,15 +58,24 @@
           *dropdownMenu
           style="cursor: pointer"
         >
-          <a routerLink="/basket" class="dropdown-item d-flex justify-content-between py-2">
+          <a
+            routerLink="/basket"
+            class="dropdown-item d-flex justify-content-between py-2"
+          >
             <i class="fa fa-shopping-basket mr-3" aria-hidden="true"></i>View
             Basket
           </a>
-          <a routerLink="/orders" class="dropdown-item d-flex justify-content-between py-2">
+          <a
+            routerLink="/orders"
+            class="dropdown-item d-flex justify-content-between py-2"
+          >
             <i class="fa fa-history mr-3" aria-hidden="true"></i>View Orders
           </a>
           <div class="dropdown-divider"></div>
-          <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+          <a
+            (click)="logout()"
+            class="dropdown-item d-flex align-items-center py-2"
+          >
             <i class="fa fa-sign-out mr-1" aria-hidden="true"></i>Sign Out
           </a>
         </div>

@@ -9,6 +9,7 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.2"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\SeedData\**" CopyToOutputDirectory="PreserveNewest"/>
     <ProjectReference Include="..\API.Abstractions\API.Abstractions.csproj"/>
     <ProjectReference Include="..\API.Models\API.Models.csproj"/>
   </ItemGroup>
