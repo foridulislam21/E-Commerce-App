@@ -17,8 +17,8 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "142.93.208.162", "port": 22,
-                "user": "root", "password": "*Moria_1590$#%F",
+                "host": "Love You", "port": 22,
+                "user": "root", "password": "Anything",
 
                 "dir": "/var/midStreetCafe",
                 "mappings": {
