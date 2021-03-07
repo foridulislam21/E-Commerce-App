@@ -17,7 +17,7 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "143.110.249.72", "port": 22,
+                "host": "142.93.208.162", "port": 22,
                 "user": "root", "password": "*Moria_1590$#%F",
 
                 "dir": "/var/midStreetCafe",
